@@ -1029,6 +1029,40 @@
     </footer>
 
     <script>
+        // Language toggle functionality
+        let currentLang = 'es'; // Default Spanish
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            
+            const langFlag = document.getElementById('lang-flag');
+            const langText = document.getElementById('lang-text');
+            
+            if (currentLang === 'en') {
+                langFlag.textContent = '🇪🇸';
+                langText.textContent = 'ES';
+            } else {
+                langFlag.textContent = '🇺🇸';
+                langText.textContent = 'EN';
+            }
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-en][data-es]').forEach(element => {
+                const newText = element.getAttribute(`data-${currentLang}`);
+                if (newText) {
+                    element.textContent = newText;
+                }
+            });
+            
+            // Update page title
+            if (currentLang === 'en') {
+                document.title = 'Nicolás Cardenas Caro - Web Developer';
+            } else {
+                document.title = 'Nicolás Cardenas Caro - Desarrollador Web';
+            }
+            
+            console.log(`🌍 Language switched to: ${currentLang.toUpperCase()}`);
+        }
         // Theme toggle functionality
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
