@@ -780,7 +780,14 @@
                 <li><a href="#proyectos">Projects</a></li>
                 <li><a href="#contacto">Contact</a></li>
             </ul>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙 DARK</button>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <span id="lang-flag">🇺🇸</span>
+                    <span id="lang-text">EN</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">🌙 DARK</button>
+            </div>
+            
         </nav>
     </header>
 
